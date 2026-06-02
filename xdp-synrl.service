@@ -1,0 +1,16 @@
+[Unit]
+Description=XDP SYN rate-limit for HAProxy (ports 2000/2001/2002)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStartPre=/usr/local/sbin/xdp-synrl-prep.sh
+ExecStart=/usr/local/sbin/xdp_synrl_loader
+KillSignal=SIGTERM
+TimeoutStopSec=10
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target

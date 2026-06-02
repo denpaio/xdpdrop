@@ -1,0 +1,8 @@
+# build artifacts
+*.o
+xdp_synrl_loader
+
+# editor / OS
+.DS_Store
+*.swp
+*~
